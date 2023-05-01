@@ -47,6 +47,7 @@ console.log(`El resultado de la suma es igual a ${resultado}`);
 
 /* Ejemplo de una calculadora basica */
 
+/*
 function basicCalculator(primerOperando, segundoOperando, operacion){
     switch(operacion){
         case "+":
@@ -76,4 +77,96 @@ let sndOperando = parseInt(prompt("Ingrese el valor del segundo operando"));
 let operation = prompt("Por ultimo, ingrese la operacion que quiere realizar");
 let resultado = basicCalculator(fstOperando, sndOperando, operation);
 alert(`El resultado de ${fstOperando} ${operation} ${sndOperando} es igual a ${resultado}`); 
+*/
+
+/************************** Scope ***************************/
+
+/* Ejemplo de variable global */
+
+/* 
+let resultado = 0; // variable global
+
+function sumar(fstNum, sndNum){
+    resultado = fstNum + sndNum;
+}
+
+sumar(5,6);
+console.log(resultado);
+*/
+
+/* Si coloco la variable resultado en el siguiente orden se produce un error */
+
+/* function sumar(fstNum, sndNum){
+    let resultado = fstNum + sndNum;
+}
+
+sumar(5,6);
+console.log(resultado); // Aca esta el error porque resultado es una variable local de suma() unicamente 
+*/
+
+/* Por ultimo, arreglo el codigo definiendo a resultado como variable local */
+
+/* function sumar(fstNum, sndNum){
+    let resultado = fstNum + sndNum;
+    console.log(resultado);  
+}
+sumar(5,6);
+
+*/
+
+/************************** Funciones anonimas ***************************/
+
+/* const suma = function(a,b){
+    return a + b;
+};
+
+console.log(suma(5,6));
+*/
+
+/************************** Arrow functions ***************************/
+
+/* 
+const suma = (a,b) => {
+    return a + b;
+}
+
+console.log(suma(4,6));
+*/
+
+// En el caso que se pase solo un parametro, no es necesario poner (). Por ejemplo
+
+/* 
+const funcion = a => {
+    return a;
+}
+*/
+
+// En el caso que no haya parametros, escribimos de la siguiente manera
+
+/* 
+const funcion = () => {
+    return "hola";
+}
+*/
+
+// Las arrow functions tambien pueden realizar retornos implicitos. Por ejemplo:
+
+/* 
+const suma = (a,b) => x + y;
+}
+*/
+
+/****************** IMPORTANTE: TRABAJAR CON ARROW FUNCTIONS ******************/
+
+const suma = (a,b) => a + b;
+const resta = (a,b) => a - b;
+const iva = (a) => a * 0.21;
+
+let precioProducto = 1000;
+let descuento = 10;
+
+let nuevoPrecio = resta(suma(precioProducto, iva(precioProducto)), descuento);
+console.log(nuevoPrecio);
+
+
 
