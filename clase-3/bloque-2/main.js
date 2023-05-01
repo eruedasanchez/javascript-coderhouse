@@ -68,6 +68,7 @@ console.log(primerPersona.direccion);
 
 /* Otra forma de escribir la funcion constructora de manera mas compacta */
 
+/* 
 function Persona(info){
     this.nombre = info.nombre;
     this.edad = info.edad;
@@ -84,4 +85,73 @@ console.log(primerPersona);
 console.log(primerPersona.nombre);
 console.log(primerPersona.edad);
 console.log(primerPersona.direccion);
+*/
 
+/*********** Agregando metodos a la funcion constructora ***********/
+
+/* 
+function Persona(nombre, edad, direccion){
+    this.nombre = nombre;
+    this.edad = edad;
+    this.direccion = direccion;
+    // Agrego metodo hablar 
+    this.hablar = function(){console.log(`Hola, soy ${this.nombre}`)}
+}
+
+const primerPersona = new Persona("pepe", 45, "Calle falsa 123");
+*/
+
+/* For para ver las claves de una funcion constructora */
+/* 
+for(const clave in primerPersona){
+    console.log(clave);
+}
+*/
+
+/*
+console.log(primerPersona);
+primerPersona.hablar();
+*/
+
+/********************** CLASES **********************/
+
+/*
+class Persona{
+    constructor(nombre, edad, direccion){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.direccion = direccion;
+    }
+    // Agrego metodo hablar 
+    hablar(){
+        console.log(`Hola, soy ${this.nombre}`);
+    }
+}
+
+const primerPersona = new Persona("pepe", 45, "Calle falsa 123");
+console.log(primerPersona);
+console.log(primerPersona.nombre);
+primerPersona.hablar();
+*/
+
+/* Ejemplo producto de mercado libre */
+
+class Producto{
+    constructor(nombre, precio, imagen){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.vendido = false; // No fue declarado en los parametros
+    }
+
+    vender(){
+        this.vendido = true;
+    }
+} 
+
+const primerProducto = new Producto("Monitor gamer BenQ", "$519000", "http:blablabla");
+const segundoProducto = new Producto("Monitor gamer Samsung", "$295000", "http:zzzzz");
+console.log(primerProducto);
+primerProducto.vender();
+console.log(primerProducto);
+console.log(segundoProducto);
