@@ -84,6 +84,85 @@ console.log(humanosMascotas);
 humanosMascotas.reverse();
 console.log(humanosMascotas);
 
+/* Eliminar elementos de un arreglo pero segun el nombre */
+
+const productos = ["camisa", "zapato", "pantalon"];
+
+const eliminar = (nombre) => {
+    let indice = productos.indexOf(nombre);
+    if(indice != -1){
+        productos.splice(indice,1);
+        console.log(productos);
+    }
+};
+
+eliminar("zapato");
+eliminar("peggy"); // No elimina nada porque no existe "peggy" en productos 
+
+
+/********************** ARREGLOS + OBJETOS **********************/
+
+const products = [
+{id:1, nombre: "camisa", precio: 1000},    
+{id:2, nombre: "zapato", precio: 1350},    
+{id:3, nombre: "media", precio: 750},
+{id:4, nombre: "gorra", precio: 345}
+];
+
+/* Uso de for of (only arrays) */
+
+for(const item of products){
+    console.log(item);                  // Lista cada objeto del arreglo products
+    console.log(item.nombre);
+    console.log(item.precio);
+}
+
+/* Utilizacion de clases */
+
+class Producto{
+    constructor(id, nombre, precio){
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+}
+
+const prods = [];
+const prodCamisa = new Producto(1, "camisa", 12000);
+const prodZapato = new Producto(2, "zapato", 28000);
+const prodMedia = new Producto(3, "media", 3000);
+
+
+prods.push(prodCamisa);
+prods.push(prodZapato);
+prods.push(prodMedia);
+console.log(prods);
+
+
+class Ciudadano{
+    constructor(name, surname, dni, age, gender){
+        this.name = name;
+        this.surname = surname;
+        this.dni = dni;
+        this.age = age;
+        this.gender = gender;
+    }
+}
+
+const padronElectoral = [];
+const firstPerson = new Ciudadano("ezequiel", "sanchez", 38000000, 28, "masculino");
+const secondPerson = new Ciudadano("camila", "rodriguez", 37000000, 27, "femenino");
+const thirdPerson = new Ciudadano("andres", "velazquez", 36000000, 32, "no-binario");
+
+padronElectoral.push(firstPerson);
+padronElectoral.push(secondPerson);
+padronElectoral.push(thirdPerson);
+
+for(const info of padronElectoral){
+    console.log(info);
+}
+
+
 
 
 
