@@ -67,7 +67,22 @@ console.log(humanosMascotas);
 const humanosMascotasCopy = humanosMascotas.slice(1,3);           // slice(desde, hasta) desde inclusivo, hasta exclusivo
 console.log(humanosMascotasCopy);
 
+/* Devolver la posicion de un elemento dado */
 
+console.log(humanosMascotas);
+console.log(humanosMascotas.indexOf("ezequiel"));
+console.log(humanosMascotas.indexOf("juancito"));                   // devuelve -1 porque no se encuentra el elemento pasado por parametro
+
+/* Verificar la existencia de un elemento en el arreglo */
+
+console.log(humanosMascotas.includes("peggy"));                     // true porque "peggy" esta definido en el array 
+console.log(humanosMascotas.includes("apolo"));                     // false porque "apolo" no esta definido en el array
+
+/* Realizar el reverso de un arreglo */
+
+console.log(humanosMascotas);
+humanosMascotas.reverse();
+console.log(humanosMascotas);
 
 
 
