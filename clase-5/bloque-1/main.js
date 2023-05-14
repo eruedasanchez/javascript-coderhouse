@@ -35,4 +35,29 @@ const nombres = ["ezequiel", "juancito", "pepito", "ana", "maria", "andres", "fl
 const indiceAleatorio = numberGenerator(nombres.length - 1, 0);
 console.log(nombres[indiceAleatorio]);
 
+/********************************************** Clase Date **********************************************/
+
+console.log(Date());                        // Impresion de la fecha y hora actual de su localizacion
+console.log(new Date(2023, 4, 14));         // Creacion de fechas
+
+const NAVIDAD = new Date(2023, 11, 25, 00, 00, 00);
+console.log(NAVIDAD);
+
+const CHRISTMAS = new Date("December 25, 2023 00:00:00");
+console.log(CHRISTMAS);
+console.log(CHRISTMAS.toDateString());          // Dia, Mes, Fecha, año 
+console.log(CHRISTMAS.toLocaleString());        // Fecha con horario
+console.log(CHRISTMAS.toLocaleDateString());    // Solo fecha
+console.log(CHRISTMAS.toTimeString());          // Horario de la ubicacion actual
+
+const NAVIDAT = new Date("December 25, 2023");
+const HOY = new Date("May 14, 2023");
+console.log(HOY.getFullYear());   // Año
+console.log(HOY.getMonth() + 1);  // Mes (enero -> 0, febrero -> 1, ..., diciembre -> 11)
+console.log(HOY.getDay());        // Numero de dia en la semana (domingo -> 0, lunes -> 1, martes -> 2, miercoles -> 3, jueves -> 4, viernes -> 5, sabado -> 6)
+
+console.log(NAVIDAT - HOY); // Cantidad de milisegundos que faltan hasta la navidad
+const milisegundosPorDia = 86400000;
+console.log((NAVIDAT - HOY) / milisegundosPorDia); 
+
 
