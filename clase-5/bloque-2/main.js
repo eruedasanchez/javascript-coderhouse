@@ -43,3 +43,47 @@ if(seccion === "carrito"){
     saludo.innerHTML = "<h1>Bienvenido a nuestra super pagina</h1>";
     saludo.className = "verde";    
 }
+
+/******************** Agregar nodos ********************/
+
+let parr = document.createElement("p");                             // Creacion de la etiqueta
+let contenedor = document.getElementById("contenedor");
+parr.innerHTML = "<h1> Hola a todos </h1>"                          // Asignacion de contenido
+document.body.append(parr);                                         // Asignacion del padre en el body en este caso
+contenedor.append(parr);
+
+
+/******************** Eliminar un nodo ********************/
+
+
+let content = document.getElementById("content");
+content.remove();
+
+const nombres = ["walter", "agustin", "pepito"];
+let con = document.getElementById("contenedor");
+nombres.forEach(nombre => {
+    let div = document.createElement("div");
+    div.innerHTML = nombre;
+    con.append(div);
+});
+
+/**************** Ejemplo con productos ****************/
+
+const productos = [
+    {id: 1, nombre:"camisa", precio: 1000},
+    {id: 2, nombre:"pantalon", precio: 1100},
+    {id: 3, nombre:"gorra", precio: 300},
+    {id: 4, nombre:"media", precio: 400},
+];
+let cont = document.getElementById("contenedor");
+
+productos.forEach(producto => {
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <h2>ID: ${producto.id}</h2>
+    <p>Nombre: ${producto.nombre} </p>
+    <b>Precio: $${producto.precio} </b>`;
+    cont.append(div);
+}) 
+
+
