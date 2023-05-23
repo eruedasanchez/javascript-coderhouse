@@ -1,5 +1,6 @@
 /************* Clase 4. Bloque 2. Funciones de orden superior I *************/
 
+/*
 function mayorQue(n){
     return m => m > n;
 }
@@ -8,9 +9,9 @@ let mayorQueCinco = mayorQue(5);
 console.log(mayorQueCinco(6));          // true
 console.log(mayorQueCinco(4));          // false
 
-
+*/
 /* Operaciones funciona como una funcion generadora */
-
+/*
 function operaciones(op){
     if(op === "sumar"){
         return (a,b) => a + b;
@@ -30,9 +31,9 @@ console.log(suma(6,5));
 
 let opIndefinida = operaciones("potencia");
 console.log(opIndefinida);                      // devuelve undefined
-
+*/
 /* Funciones de alto orden que reciben por parametro una funcion */
-
+/*
 function iterador(arreglo, funcion){
     for(const numero of arreglo){
         funcion(numero);
@@ -54,11 +55,11 @@ iteradorDupli([1,2,3,4,5], (el) => {
 });
 
 console.log(duplicados);
-
+*/
 /************************** Metodos de busqueda y transformacion **************************/
 
 /* Metodo forEach(). Recorrer un arreglo */
-
+/*
 const productos = [
     {id: 1, nombre: "camisa", precio: 1000},
     {id: 2, nombre: "zapato", precio: 1320},
@@ -70,7 +71,7 @@ productos.forEach(item => {
     console.log(item.id);
     console.log(item.nombre);
 });
-
+*/
 /* Metodo find(). Encuentra la primer ocurrencia que cumple la condicion */
 
 /* 
@@ -105,12 +106,12 @@ encontradosInput.forEach((item) => {
 
 
 /* Metodo some(). Verifica si al menos un elemento del arreglo cumple la condicion */ 
-
+/*
 console.log(productos.some(item => item.precio === 750));           //true
 console.log(productos.some(item => item.precio === 20));            //false
-
+*/
 /* Metodo map(). Transforma los elementos del arreglo */
-
+/*
 const nombres = productos.map(item => item.nombre);
 console.log(nombres);                               // Retorna unicamente el nombre de los productos. Elimina id y precio
 
@@ -124,33 +125,54 @@ const preciosNavidad = productos.map(item => {
 });
 
 console.log(preciosNavidad);
-
+*/
 /* Metodo reduce(). Reduce todo el arreglo a un unico valor. Recibe una arrow function y un valor inicial (acum inicializado en 0 en este caso) */
-
+/*
 const numeros = [3, 2, 4, 5, 5, 66];
 const sumaNumeros = numeros.reduce((acum,item) => acum + item, 0);
 console.log(sumaNumeros); 
 
 const sumaProductos = productos.reduce((acum,item) => acum + item.precio, 0);
 console.log(sumaProductos);
-
+*/
 /* Metodo sort(). Ordenar un arreglo */
-
+/*
 const numbers = [40, 1, 5, 200];
 numbers.sort((a,b) => b - a);           // Orden decreciente
 console.log(numbers);
 numbers.sort((a,b) => a - b);           // Orden creciente
 console.log(numbers);
+*/
 
+class Pikachu{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+}
+
+const pikachus = [];
+const firstPik = new Pikachu("Pikachu", 21);
+const secondPik = new Pikachu("Charmander", 37);
+const thirdPik = new Pikachu("Pidgey", 45);
+const fourthPik = new Pikachu("Squirtle", 60);
+
+pikachus.push(firstPik);
+pikachus.push(secondPik);
+pikachus.push(thirdPik);
+pikachus.push(fourthPik);
+
+/* 
 const itemsPikachus = [
     {name: "Pikachu", price: 21},
     {name: "Charmander", price: 37},
     {name: "Pidgey", price: 45},
     {name: "Squirtle", price: 60},
 ];
+*/
 
 /* Ordenar Pikachus por orden alfabetico de la a la z */
-
+/* 
 itemsPikachus.sort((a,b) => {
     if(a.name > b.name){
         return 1;
@@ -162,10 +184,23 @@ itemsPikachus.sort((a,b) => {
     return 0;
 })
 
-console.log(itemsPikachus);
+*/
+
+/* console.log(itemsPikachus); */
+
+const filtrarPorPrecio = (arr, valor) => {
+    const encontrados = arr.filter(item => item.price > valor);
+    return encontrados;
+
+}
+
+let precio = parseInt(prompt("Ingrese un precio")); 
+const pikachusFiltrados = filtrarPorPrecio(pikachus, precio);
+alert(JSON.stringify(pikachusFiltrados, null, pikachusFiltrados.length+1));
+
 
 /* Ordenar Pikachus por orden alfabetico de la z la a */
-
+/*
 itemsPikachus.sort((a,b) => {
     if(a.name > b.name){
         return -1;
@@ -178,7 +213,7 @@ itemsPikachus.sort((a,b) => {
 })
 
 console.log(itemsPikachus);
-
+*/
 
 
 

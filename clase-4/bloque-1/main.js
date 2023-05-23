@@ -48,7 +48,7 @@ console.log(nombres);
 
 /* Quitar un elemento en una posicion valida del arreglo */
 
-nombres.splice(0,1);                      
+nombres.splice(0,1);    // eliminar desde la posicion 0, 1 un elemento                  
 console.log(nombres);
 
 /* Unir en un solo arreglo todos los elementos separados por lo pasado como parametro */
