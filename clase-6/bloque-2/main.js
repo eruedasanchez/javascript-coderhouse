@@ -118,6 +118,7 @@ const productos = [
 localStorage.setItem("carrito", JSON.stringify(productos));
 
 let carrito = [];
+let boton = document.getElementById("eliminar");
 let carritoStorage = localStorage.getItem("carrito");
 
 if(carritoStorage){
@@ -138,6 +139,15 @@ carrito.forEach((item) => {
     `;
     document.body.append(div);
 });
+
+boton.addEventListener("click", () => {
+        localStorage.clear();
+        alert("carrito eliminado");
+        location.reload();
+});
+
+
+
 
 
 
