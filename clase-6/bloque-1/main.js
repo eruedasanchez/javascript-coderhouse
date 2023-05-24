@@ -6,10 +6,10 @@ const respuesta = () => {
     console.log("click");
 }
 
-// Primera forma de agregar un evento
+Primera forma de agregar un evento
 boton.addEventListener("click", respuesta);  // Primer parametro nombre del evento y segundo parametro, declaracion de la funcion
 
-// Segunda forma de agregar un evento
+Segunda forma de agregar un evento
 boton.onclick = respuesta;                      // Tambien se asgina la declaracion de la funcion
 
 let evento = prompt("Ingrese el nombre del evento.")
@@ -92,4 +92,44 @@ nombre.addEventListener("input", () => {
         saludo.className = "verde";
     }
 });
+
+/************ CREACION DE FORMULARIOS ************/
+
+let formulario = document.getElementById("formulario");
+
+formulario.addEventListener("submit", () => {
+    console.log("Hola a todos");                // Se borra todo porque el comportamiento por defecto de los formularios es restaurarse 
+});
+
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();            // preventDefault() evita que se borra toda la informacion del formulario (que se restaure)
+    console.log("Hola a todos");
+    let inputs = e.target.children; // muestra la cantidad de hijos que tiene el diccionario
+    console.log(inputs);
+    console.log(inputs[0].value);
+    
+    if(!inputs[0].value.includes("@")){
+        inputs[0].value = "";
+        let div = document.createElement("div");
+        div.innerHTML = "No esta el @";
+        document.body.append(div);  // Agrega al html un mensaje avisando que no se escribio el arroba
+    }
+});
+
+
+/*************** A medida que se van agregando los datos, se colocan en un div y se muestran ***************/
+
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let inputs = e.target.children;
+
+    let info = document.getElementById("info");
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <h2>Nombre: ${inputs[0].value} </h2>
+    <b>Edad: ${inputs[1].value} </b>
+    `;
+    info.append(div);
+});
+
 
